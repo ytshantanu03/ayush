@@ -1,19 +1,877 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Tailwind Project</title>
+    <title>Ecologique Science Technik (I) Pvt. Ltd.</title>
     <link href="./output.css" rel="stylesheet" />
   </head>
-  <body class="bg-gray-100 text-center p-8">
-    <h1 class="text-3xl font-bold text-blue-600 underline">
-      Hello Tailwind CSS!
-    </h1>
-    <button
-      class="mt-5 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-    >
-      Click Me
-    </button>
+  <body class="bg-white">
+    <!-- Top Header Section -->
+    <div class="bg-blue-600 flex items-center px-6 py-4">
+      <!-- Logo -->
+      <img src="./assets/estpllogo.png" alt="Logo" class="w-16 h-16 mr-4" />
+
+      <!-- Company Name -->
+      <h1 class="text-white text-2xl md:text-3xl font-bold">
+        Ecologique Science Technik (I) Pvt. Ltd.
+      </h1>
+    </div>
+
+    <!-- Navigation Menu -->
+
+    <style>
+      /* Add a small delay for dropdown to prevent immediate disappearance */
+      .dropdown-menu {
+        transition: opacity 0.2s, visibility 0.2s;
+      }
+      /* Create an invisible buffer zone between menu and dropdown */
+      .dropdown-parent::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+        let touchTimer;
+
+        dropdownToggles.forEach((toggle) => {
+          const dropdown = toggle.nextElementSibling;
+          const parent = toggle.closest(".dropdown-parent");
+
+          // Handle hover (desktop)
+          parent.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+              dropdown.classList.remove("hidden");
+            }
+          });
+
+          parent.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                dropdown.classList.add("hidden");
+              }, 200); // Small delay before hiding
+            }
+          });
+
+          // Handle click (mobile)
+          toggle.addEventListener("click", function (e) {
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const wasOpen = !dropdown.classList.contains("hidden");
+
+              // Close all dropdowns first
+              document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+                menu.classList.add("hidden");
+              });
+
+              // Toggle current dropdown if it wasn't open
+              if (!wasOpen) {
+                dropdown.classList.remove("hidden");
+              }
+            }
+          });
+        });
+
+        // Keep dropdown open when hovering over it (desktop)
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+            }
+          });
+
+          menu.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                menu.classList.add("hidden");
+              }, 200);
+            }
+          });
+        });
+
+        // Close dropdowns when clicking elsewhere
+        document.addEventListener("click", function (e) {
+          if (
+            window.innerWidth < 768 &&
+            !e.target.closest(".dropdown-parent")
+          ) {
+            document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+              menu.classList.add("hidden");
+            });
+          }
+        });
+      });
+    </script>
+
+    <nav class="bg-white shadow-md relative">
+      <div class="container mx-auto px-4">
+        <ul
+          class="flex flex-wrap justify-start space-x-0 md:space-x-6 py-3 text-gray-800 font-medium text-sm md:text-base"
+        >
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Home</a>
+          </li>
+
+          <!-- About with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              About
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Company Profile</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Certifications</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Testimonials</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Products & Services with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              Products & Services
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Wastewater Treatment</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Biogas Plants</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >STP Solutions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Consulting</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Equipment Supply</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Other regular menu items -->
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Gallery</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Tender</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Career</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Contact</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">KIRANA CLUB</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Policies</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Background Hero Section -->
+    <section class="relative">
+      <!-- Background Image (slightly faded) -->
+      <img
+        src="./assets/Untitled2.png"
+        alt="Background"
+        class="w-full h-[70vh] object-cover opacity-80"
+      />
+
+      <!-- Dark Overlay for Better Text Contrast -->
+      <div class="absolute inset-0 bg-black/50"></div>
+      <!-- Adjust opacity (e.g., /30, /50) -->
+
+      <!-- Overlay Content (Text & Button) -->
+      <div
+        class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center text-white px-4"
+      >
+        <h2 class="text-4xl md:text-5xl font-bold text-blue-300 drop-shadow-lg">
+          <!-- Changed to lighter blue for contrast -->
+          Ecologique Science Technik (I) Pvt. Ltd.
+        </h2>
+        <p class="mt-2 text-xl font-semibold">Committed to the Planet.</p>
+        <button
+          class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow-md transition-colors"
+        >
+          Employee Login
+        </button>
+      </div>
+    </section>
+
+    <!-- Brief Section start -->
+    <!-- Content Section -->
+    <section class="max-w-6xl mx-auto py-12 px-4">
+      <div class="grid md:grid-cols-1 gap-8">
+        <div class="space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-blue-800">
+            About ESTPL
+          </h2>
+          <p class="text-gray-700 leading-relaxed">
+            ESTPL is a scientific enterprise under the Scientist
+            Entrepreneurship Scheme of the Council of Scientific and Industrial
+            Research (CSIR), formed by scientists of CSIR-National Environmental
+            Engineering Research Institute (NEERI). ESTPL intends to carry on
+            the business of providing innovative technical solutions for
+            environmental applications including:
+          </p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700">
+            <li>Wastewater Treatment</li>
+            <li>Sewage Treatment</li>
+            <li>Solid Waste Management</li>
+            <li>Air Pollution Monitoring and Control</li>
+            <li>Water Treatment</li>
+            <li>Consultancy Services for Environmental Applications</li>
+          </ul>
+          <p class="text-gray-700 leading-relaxed">
+            ESTPL is an ISO 9001:2015 certified company and has acquired various
+            patented technologies from IITs, educational institutes, and
+            research organizations like BARC & NEERI.
+          </p>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-blue-800 mb-4">Brief Details</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <span class="text-blue-600 mr-2">•</span>
+              <span
+                >Private Limited Company working in the field of Environmental
+                Solutions since 2014</span
+              >
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-600 mr-2">•</span>
+              <span>Technology acquired from NEERI</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-600 mr-2">•</span>
+              <span
+                >Also find us at
+                <a href="#" class="text-blue-600 hover:underline">GEM</a></span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Auto-Scrolling Images Section -->
+    <section class="py-12 bg-gray-100">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-center mb-8 text-blue-800">
+          Technologies acquired from
+        </h2>
+        <div class="scrolling-images-container">
+          <div class="scrolling-images">
+            <img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            />
+            <img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            /><img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            /><img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            /><img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            /><img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            /><img
+              src="./assets/estpllogo.png"
+              alt="Technology 1"
+              class="inline-block mx-4 h-40 w-auto rounded-lg shadow-md"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .scrolling-images-container {
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .scrolling-images {
+        display: inline-block;
+        animation: scroll 20s linear infinite;
+      }
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+
+    <script>
+      // Pause animation on hover
+      const scrollingImages = document.querySelector(".scrolling-images");
+      scrollingImages.addEventListener("mouseenter", () => {
+        scrollingImages.style.animationPlayState = "paused";
+      });
+      scrollingImages.addEventListener("mouseleave", () => {
+        scrollingImages.style.animationPlayState = "running";
+      });
+    </script>
+    <!-- Brief Section end -->
+
+    <!-- Products and services start -->
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-blue-800">
+          Our Products
+        </h1>
+        <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Product 1 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-700 mb-2">
+              CONSTRUCTED WETLAND
+            </h3>
+            <!-- <p class="text-gray-600">
+              Sustainable wastewater treatment using natural processes.
+            </p> -->
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-700 mb-2">
+              PACKAGE STP (MBBR)
+            </h3>
+            <!-- <p class="text-gray-600">
+              Compact sewage treatment plants for institutional use.
+            </p> -->
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-700 mb-2">
+              INSITU NALLAH TREATMENT
+            </h3>
+            <!-- <p class="text-gray-600">
+              Compact sewage treatment plants for institutional use.
+            </p> -->
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-700 mb-2">
+              CONVENTIONAL STP (MBBR/SBR)
+            </h3>
+            <!-- <p class="text-gray-600">
+              Compact sewage treatment plants for institutional use.
+            </p> -->
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-blue-700 mb-2">COMPOSTER</h3>
+            <!-- <p class="text-gray-600">
+              Traditional systems with modern biological treatment.
+            </p> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section class="py-16 px-4 bg-gray-100">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-blue-800">
+            Our Core Services
+          </h1>
+          <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+
+        <!-- Services Grid (3 columns, 2 rows) -->
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="https://via.placeholder.com/600x300?text=DPR+Report"
+              alt="DPR Report"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-blue-700 mb-2">
+                DETAILED PROJECT REPORT PREPARATION
+              </h3>
+              <p class="text-gray-600">
+                Techno-economic feasibility study reports to support investment
+                proposals.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="https://via.placeholder.com/600x300?text=Environmental+Audit"
+              alt="Environmental Audit"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-blue-700 mb-2">
+                ENVIRONMENTAL AUDIT
+              </h3>
+              <p class="text-gray-600">
+                Environmental management tool for measuring activity impacts
+                against standards.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="https://via.placeholder.com/600x300?text=EMP"
+              alt="EMP"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-blue-700 mb-2">
+                ENVIRONMENTAL MANAGEMENT PLANS
+              </h3>
+              <p class="text-gray-600">
+                Formulation, implementation, and monitoring of environmental
+                protection measures.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="https://via.placeholder.com/600x300?text=Energy+Audit"
+              alt="Energy Audit"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-blue-700 mb-2">
+                ENERGY AUDIT & RENEWABLE ENERGY PLANS
+              </h3>
+              <p class="text-gray-600">
+                Biogas plants convert organic waste to methane for electricity
+                generation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="https://via.placeholder.com/600x300?text=Research"
+              alt="Research"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-blue-700 mb-2">
+                STATISTICAL CONSULTING & RESEARCH
+              </h3>
+              <p class="text-gray-600">
+                Supporting scientific research programs in universities and
+                organizations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <div
+            class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-transform hover:-translate-y-1"
+          >
+            <img
+              src="https://via.placeholder.com/600x300?text=Equipment"
+              alt="Equipment"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-blue-700 mb-2">
+                EQUIPMENT SUPPLY
+              </h3>
+              <p class="text-gray-600">
+                Innovative products for wastewater treatment, including UF
+                membranes and filters.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Products and services end -->
+
+    <!-- image section start  -->
+    <section class="min-h-screen flex items-center justify-center p-4">
+      <div class="w-full max-w-6xl mx-auto">
+        <!-- Large centered image -->
+        <img
+          src="./assets/Untitled2.png"
+          alt="ESTPL Products and Services"
+          class="w-full md:w-4/5 lg:w-3/4 xl:w-2/3 mx-auto rounded-lg shadow-xl border-2 border-gray-300"
+        />
+      </div>
+    </section>
+    <!-- image section end -->
+
+    <!-- Latest News Start -->
+    <section class="py-16 px-4 max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-blue-800">
+          Latest News
+        </h1>
+        <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+      </div>
+
+      <!-- News Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- News Card 1 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+              Waste Water Management
+            </h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <a href="#" class="text-blue-600 hover:underline font-medium"
+                  >Read More...</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- News Card 2 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Biogas</h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <a href="#" class="text-blue-600 hover:underline font-medium"
+                  >Read More...</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- News Card 3 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+              Environment Management Plans
+            </h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <a href="#" class="text-blue-600 hover:underline font-medium"
+                  >Read More...</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- News Card 4 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+              City Sanitation Plan
+            </h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <a href="#" class="text-blue-600 hover:underline font-medium"
+                  >Read More...</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- News Card 5 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">Research</h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <a href="#" class="text-blue-600 hover:underline font-medium"
+                  >Read More...</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- News Card 6 -->
+        <div
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="p-6">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">
+              Sewage Treatment Plants
+            </h2>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <a href="#" class="text-blue-600 hover:underline font-medium"
+                  >Read More...</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Latest News End -->
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center text-blue-400">
+          CONTACT US
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Registered Address
+            </h3>
+            <address class="not-italic">
+              <p>93 Agrey Lancia, Sunyuania Negra,</p>
+              <p>Khania Road, Nagpur,</p>
+              <p>Maharashtra - 440025</p>
+            </address>
+          </div>
+
+          <!-- Office Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Address
+            </h3>
+            <address class="not-italic">
+              <p>Dorong Tuzi, Park 001, Gri-Abertemer,</p>
+              <p>Ambasari Hill, Tech Nagpur,</p>
+              <p>Maharashtra - 440033</p>
+            </address>
+          </div>
+
+          <!-- Contact Info Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Contact Info
+            </h3>
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>+91-9975050500</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9146211713</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9975050506</span>
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>director@statj.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>ecologo@sunys@gmail.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>info@sunyskola.com</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Hours & Visits Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Hours
+            </h3>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-clock text-blue-300"></i>
+              <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+            </p>
+
+            <div class="pt-4">
+              <h3
+                class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+              >
+                Page Visits
+              </h3>
+              <div class="flex items-center gap-2 mt-2">
+                <i class="fas fa-eye text-blue-300"></i>
+                <!-- Replace with your actual visitor counter image -->
+                <img
+                  src="your-visitor-counter-image.png"
+                  alt="Visitor Counter"
+                  class="h-8"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Top & Copyright -->
+        <div
+          class="border-t border-gray-700 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <button
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="flex items-center gap-2 text-blue-300 hover:text-blue-400 mb-4 md:mb-0"
+          >
+            <i class="fas fa-arrow-up"></i>
+            <span>BACK TO TOP</span>
+          </button>
+
+          <p class="text-gray-400 text-sm">
+            &copy; 2023 ESTPL. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple back to top functionality
+      document
+        .querySelector("button[onclick]")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
   </body>
 </html>

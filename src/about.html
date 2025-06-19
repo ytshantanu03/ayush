@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecologique Science Technik (I) Pvt. Ltd.</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Top Header Section -->
+    <div class="bg-blue-600 flex items-center px-6 py-4">
+      <!-- Logo -->
+      <img src="./assets/estpllogo.png" alt="Logo" class="w-16 h-16 mr-4" />
+
+      <!-- Company Name -->
+      <h1 class="text-white text-2xl md:text-3xl font-bold">
+        Ecologique Science Technik (I) Pvt. Ltd.
+      </h1>
+    </div>
+
+    <!-- Navigation Menu -->
+
+    <style>
+      /* Add a small delay for dropdown to prevent immediate disappearance */
+      .dropdown-menu {
+        transition: opacity 0.2s, visibility 0.2s;
+      }
+      /* Create an invisible buffer zone between menu and dropdown */
+      .dropdown-parent::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+        let touchTimer;
+
+        dropdownToggles.forEach((toggle) => {
+          const dropdown = toggle.nextElementSibling;
+          const parent = toggle.closest(".dropdown-parent");
+
+          // Handle hover (desktop)
+          parent.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+              dropdown.classList.remove("hidden");
+            }
+          });
+
+          parent.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                dropdown.classList.add("hidden");
+              }, 200); // Small delay before hiding
+            }
+          });
+
+          // Handle click (mobile)
+          toggle.addEventListener("click", function (e) {
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const wasOpen = !dropdown.classList.contains("hidden");
+
+              // Close all dropdowns first
+              document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+                menu.classList.add("hidden");
+              });
+
+              // Toggle current dropdown if it wasn't open
+              if (!wasOpen) {
+                dropdown.classList.remove("hidden");
+              }
+            }
+          });
+        });
+
+        // Keep dropdown open when hovering over it (desktop)
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+            }
+          });
+
+          menu.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                menu.classList.add("hidden");
+              }, 200);
+            }
+          });
+        });
+
+        // Close dropdowns when clicking elsewhere
+        document.addEventListener("click", function (e) {
+          if (
+            window.innerWidth < 768 &&
+            !e.target.closest(".dropdown-parent")
+          ) {
+            document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+              menu.classList.add("hidden");
+            });
+          }
+        });
+      });
+    </script>
+
+    <nav class="bg-white shadow-md relative">
+      <div class="container mx-auto px-4">
+        <ul
+          class="flex flex-wrap justify-start space-x-0 md:space-x-6 py-3 text-gray-800 font-medium text-sm md:text-base"
+        >
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Home</a>
+          </li>
+
+          <!-- About with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              About
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Company Profile</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Certifications</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Testimonials</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Products & Services with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              Products & Services
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Wastewater Treatment</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Biogas Plants</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >STP Solutions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Consulting</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Equipment Supply</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Other regular menu items -->
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Gallery</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Tender</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Career</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Contact</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">KIRANA CLUB</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Policies</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- About section Start -->
+    <section class="py-24 px-4 bg-gray-500">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-8 text-start">
+          About Us
+        </h1>
+      </div>
+    </section>
+    <!-- About Us Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <!-- Left Column - Text Content -->
+          <div class="lg:w-1/2">
+            <h2 class="text-2xl font-bold text-blue-700 mb-4">ESTPL Profile</h2>
+            <div class="space-y-4 text-gray-700">
+              <p>
+                Institute of Sustainability is a 3.5 million key corporate value
+                unit, has the flexibility and diversity we have created across
+                enterprises. It involves a greater number spanning our working
+                service with more than one business worth less than 50% from the
+                service to which there are more businesses.
+              </p>
+
+              <p>
+                ESTPL has an integrated business system that ensures information
+                and clean energy. Each employee receives its computer and
+                images. The model can be integrated in a network, equipped with
+                local applications such as digital or internet. A simplified
+                approach, ESTPL has been built without internal knowledge known
+                as customer content, creates significant technical skills.
+              </p>
+
+              <p>
+                We also have a large pipeline of technology building digital
+                capabilities via access, solutions, computers, and mobile
+                devices, ensuring that people are appropriate within our network
+                and they are hard to communicate with us for our customers
+                because it can help improve customer experience and support
+                users who choose their own services to create an efficient
+                solution.
+              </p>
+              <button
+                class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              >
+                ESTPL Profile
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column - Image -->
+          <div class="lg:w-1/2">
+            <div
+              class="bg-gray-100 rounded-lg overflow-hidden shadow-lg h-full min-h-[400px]"
+            >
+              <!-- Replace with your actual image -->
+              <img
+                src="./assets/service-provider.png"
+                alt="ESTPL Solutions"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About section End -->
+
+    <!-- Mission, Vision, Values Start -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12"
+        >
+          Our Core Principles
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Mission Card -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="bg-blue-600 p-4 text-white">
+              <div
+                class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-bullseye text-xl"></i>
+              </div>
+              <h2 class="text-xl font-bold text-center">Mission</h2>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-700">
+                Our mission is to excel as a technical solution provider in the
+                field of <strong class="text-blue-600">Water</strong>,
+                <strong class="text-blue-600">Energy</strong> &
+                <strong class="text-blue-600">Environment</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Vision Card -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="bg-green-600 p-4 text-white">
+              <div
+                class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-eye text-xl"></i>
+              </div>
+              <h2 class="text-xl font-bold text-center">Vision</h2>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-700">
+                To become a leading and affordable technology driven, tailored
+                solution provider for a
+                <strong class="text-green-600">sustainable planet</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Values Card -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300"
+          >
+            <div class="bg-purple-600 p-4 text-white">
+              <div
+                class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <i class="fas fa-heart text-xl"></i>
+              </div>
+              <h2 class="text-xl font-bold text-center">Values</h2>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-700">
+                We at ESTPL aim to provide
+                <strong class="text-purple-600">economically feasible</strong>,
+                engineered solutions that align with the national policies for
+                <strong class="text-purple-600"
+                  >environmental protection</strong
+                >
+                & application.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Mission, Vision, Values End -->
+
+    <!-- Why choose Us Start -->
+    <section class="py-16 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+            Why choose us...
+          </h1>
+          <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Feature 1 -->
+          <div
+            class="bg-blue-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="text-blue-800 mb-4">
+              <i class="fas fa-users text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Expert Team
+            </h3>
+            <p class="text-gray-600">
+              We have experts in the field of environment and sustainability.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div
+            class="bg-green-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="text-green-600 mb-4">
+              <i class="fas fa-leaf text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Sustainable Solutions
+            </h3>
+            <p class="text-gray-600">
+              ESTPL provides sustainable & economically viable solutions to meet
+              environment & business goals.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div
+            class="bg-yellow-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="text-yellow-600 mb-4">
+              <i class="fas fa-award text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Proven Expertise
+            </h3>
+            <p class="text-gray-600">
+              We have experts in the field of environment and sustainability.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div
+            class="bg-purple-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+          >
+            <div class="text-purple-600 mb-4">
+              <i class="fas fa-building text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Government Partnerships
+            </h3>
+            <p class="text-gray-600">
+              ESTPL holds technologies for various government firms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Why choose Us End -->
+
+    <!-- Team Start -->
+    <!-- Team Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12"
+        >
+          Our Leadership Team
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Team Member 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="bg-blue-600 p-4 text-white text-center">
+              <div
+                class="w-24 h-24 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold"
+              >
+                EB
+              </div>
+              <h2 class="text-xl font-bold">Dr. Rajesh B. Biniwale</h2>
+              <p class="text-blue-100 font-medium">Director</p>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <i class="fas fa-graduation-cap text-blue-600 mt-1 mr-2"></i>
+                  <span
+                    >M.E. (Roorkee), Ph.D., D.Sc.(Hokkaido University,
+                    Japan)</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-award text-blue-600 mt-1 mr-2"></i>
+                  <span>MIIChe, FMASc, FIWA</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-flask text-blue-600 mt-1 mr-2"></i>
+                  <span>Scientist with CSIR-NEERI, 23 years</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-cogs text-blue-600 mt-1 mr-2"></i>
+                  <span
+                    >Experienced on Technology Development &
+                    Implementation</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="bg-green-600 p-4 text-white text-center">
+              <div
+                class="w-24 h-24 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold"
+              >
+                SS
+              </div>
+              <h2 class="text-xl font-bold">Shri Shriram S. Biniwale</h2>
+              <p class="text-green-100 font-medium">Director</p>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <i
+                    class="fas fa-file-invoice-dollar text-green-600 mt-1 mr-2"
+                  ></i>
+                  <span>Tax and Accounts Expert for more than 30 years</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-chart-line text-green-600 mt-1 mr-2"></i>
+                  <span>Financial Strategy Specialist</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-handshake text-green-600 mt-1 mr-2"></i>
+                  <span>Business Development Consultant</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="bg-purple-600 p-4 text-white text-center">
+              <div
+                class="w-24 h-24 bg-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold"
+              >
+                VJ
+              </div>
+              <h2 class="text-xl font-bold">Mr. Vivek Jangde</h2>
+              <p class="text-purple-100 font-medium">Deputy General Manager</p>
+            </div>
+            <div class="p-6">
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                  <i
+                    class="fas fa-graduation-cap text-purple-600 mt-1 mr-2"
+                  ></i>
+                  <span>M.Tech</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-pencil-ruler text-purple-600 mt-1 mr-2"></i>
+                  <span>Experienced on Design & Product Development</span>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-lightbulb text-purple-600 mt-1 mr-2"></i>
+                  <span>Innovation Specialist</span>
+                </li>
+                <li class="flex items-start">
+                  <i
+                    class="fas fa-project-diagram text-purple-600 mt-1 mr-2"
+                  ></i>
+                  <span>Project Management Expert</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Team End -->
+
+    <!-- marketing team Start -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12"
+        >
+          Marketing Team
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Team Member 1 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="bg-blue-600 p-6 text-white text-center">
+              <div
+                class="w-24 h-24 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold"
+              >
+                EB
+              </div>
+              <h2 class="text-xl font-bold leading-tight">
+                Dr. Rajesh B. Biniwale
+              </h2>
+              <p class="text-blue-100 font-medium">Director</p>
+            </div>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="bg-green-600 p-6 text-white text-center">
+              <div
+                class="w-24 h-24 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold"
+              >
+                SS
+              </div>
+              <h2 class="text-xl font-bold leading-tight">
+                Shri Shriram S. Biniwale
+              </h2>
+              <p class="text-green-100 font-medium">Director</p>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div
+            class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <div class="bg-purple-600 p-6 text-white text-center">
+              <div
+                class="w-24 h-24 bg-purple-500 rounded-full mx-auto mb-4 flex items-center justify-center text-4xl font-bold"
+              >
+                VJ
+              </div>
+              <h2 class="text-xl font-bold leading-tight">Mr. Vivek Jangde</h2>
+              <p class="text-purple-100 font-medium">Deputy General Manager</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- marketing team End -->
+
+    <!-- Implementation Team Start -->
+    <section class="py-16 px-4 overflow-hidden">
+      <div class="max-w-6xl mx-auto">
+        <h1
+          class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-12"
+        >
+          Implementation Team
+        </h1>
+
+        <div class="relative">
+          <!-- Slider Container -->
+          <div class="flex overflow-hidden relative group">
+            <!-- Slider Track (Animated with pause on hover) -->
+            <div class="flex w-max animate-slide group-hover:pause">
+              <!-- Original Cards -->
+              <div class="flex">
+                <!-- CARD TEMPLATE - Repeat for each member -->
+                <!-- Card 1 -->
+                <div
+                  class="flex-shrink-0 w-72 mx-2 bg-white rounded-xl shadow-lg p-6"
+                >
+                  <div class="text-center mb-4">
+                    <div
+                      class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-3 flex items-center justify-center text-xl font-bold text-blue-800"
+                    >
+                      RB
+                    </div>
+                    <h2 class="text-lg font-bold">Dr. Rajesh Biniwale</h2>
+                    <p class="text-blue-600 text-sm">Director</p>
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Ph.D. (Hokkaido University)</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>23+ Years Experience</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                  class="flex-shrink-0 w-72 mx-2 bg-white rounded-xl shadow-lg p-6"
+                >
+                  <div class="text-center mb-4">
+                    <div
+                      class="w-16 h-16 bg-green-100 rounded-full mx-auto mb-3 flex items-center justify-center text-xl font-bold text-green-800"
+                    >
+                      SS
+                    </div>
+                    <h2 class="text-lg font-bold">Shriram Biniwale</h2>
+                    <p class="text-green-600 text-sm">Director</p>
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Tax Expert (30+ Years)</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Business Consultant</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                  class="flex-shrink-0 w-72 mx-2 bg-white rounded-xl shadow-lg p-6"
+                >
+                  <div class="text-center mb-4">
+                    <div
+                      class="w-16 h-16 bg-purple-100 rounded-full mx-auto mb-3 flex items-center justify-center text-xl font-bold text-purple-800"
+                    >
+                      VJ
+                    </div>
+                    <h2 class="text-lg font-bold">Vivek Jangde</h2>
+                    <p class="text-purple-600 text-sm">Deputy GM</p>
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>M.Tech</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Product Development</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div
+                  class="flex-shrink-0 w-72 mx-2 bg-white rounded-xl shadow-lg p-6"
+                >
+                  <div class="text-center mb-4">
+                    <div
+                      class="w-16 h-16 bg-yellow-100 rounded-full mx-auto mb-3 flex items-center justify-center text-xl font-bold text-yellow-800"
+                    >
+                      AM
+                    </div>
+                    <h2 class="text-lg font-bold">Amit Sharma</h2>
+                    <p class="text-yellow-600 text-sm">Tech Lead</p>
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Water Treatment Expert</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>15+ Years Experience</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Card 5 -->
+                <div
+                  class="flex-shrink-0 w-72 mx-2 bg-white rounded-xl shadow-lg p-6"
+                >
+                  <div class="text-center mb-4">
+                    <div
+                      class="w-16 h-16 bg-red-100 rounded-full mx-auto mb-3 flex items-center justify-center text-xl font-bold text-red-800"
+                    >
+                      PK
+                    </div>
+                    <h2 class="text-lg font-bold">Priya Kumar</h2>
+                    <p class="text-red-600 text-sm">Operations Head</p>
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Waste Management</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Process Optimization</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Duplicate Cards (for seamless looping) -->
+              <div class="flex">
+                <!-- Copy the same 5 cards here -->
+                <!-- You can copy & paste the 5 card divs above here again -->
+                <!-- Just for brevity, here’s one example: -->
+                <!-- Card 1 Again -->
+                <div
+                  class="flex-shrink-0 w-72 mx-2 bg-white rounded-xl shadow-lg p-6"
+                >
+                  <div class="text-center mb-4">
+                    <div
+                      class="w-16 h-16 bg-blue-100 rounded-full mx-auto mb-3 flex items-center justify-center text-xl font-bold text-blue-800"
+                    >
+                      RB
+                    </div>
+                    <h2 class="text-lg font-bold">Dr. Rajesh Biniwale</h2>
+                    <p class="text-blue-600 text-sm">Director</p>
+                  </div>
+                  <ul class="space-y-2 text-sm">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>Ph.D. (Hokkaido University)</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2">✓</span
+                      ><span>23+ Years Experience</span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Copy rest of the 4 cards similarly -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              slide: "slide 30s linear infinite",
+            },
+            keyframes: {
+              slide: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-50%)" }, // only -50% because cards are duplicated
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Pause animation on hover */
+      .group:hover .group-hover\:pause {
+        animation-play-state: paused;
+      }
+    </style>
+    <!-- Implementation Team End -->
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center text-blue-400">
+          CONTACT US
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Registered Address
+            </h3>
+            <address class="not-italic">
+              <p>93 Agrey Lancia, Sunyuania Negra,</p>
+              <p>Khania Road, Nagpur,</p>
+              <p>Maharashtra - 440025</p>
+            </address>
+          </div>
+
+          <!-- Office Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Address
+            </h3>
+            <address class="not-italic">
+              <p>Dorong Tuzi, Park 001, Gri-Abertemer,</p>
+              <p>Ambasari Hill, Tech Nagpur,</p>
+              <p>Maharashtra - 440033</p>
+            </address>
+          </div>
+
+          <!-- Contact Info Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Contact Info
+            </h3>
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>+91-9975050500</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9146211713</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9975050506</span>
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>director@statj.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>ecologo@sunys@gmail.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>info@sunyskola.com</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Hours & Visits Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Hours
+            </h3>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-clock text-blue-300"></i>
+              <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+            </p>
+
+            <div class="pt-4">
+              <h3
+                class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+              >
+                Page Visits
+              </h3>
+              <div class="flex items-center gap-2 mt-2">
+                <i class="fas fa-eye text-blue-300"></i>
+                <!-- Replace with your actual visitor counter image -->
+                <img
+                  src="your-visitor-counter-image.png"
+                  alt="Visitor Counter"
+                  class="h-8"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Top & Copyright -->
+        <div
+          class="border-t border-gray-700 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <button
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="flex items-center gap-2 text-blue-300 hover:text-blue-400 mb-4 md:mb-0"
+          >
+            <i class="fas fa-arrow-up"></i>
+            <span>BACK TO TOP</span>
+          </button>
+
+          <p class="text-gray-400 text-sm">
+            &copy; 2023 ESTPL. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple back to top functionality
+      document
+        .querySelector("button[onclick]")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+  </body>
+</html>

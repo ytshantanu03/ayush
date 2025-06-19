@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecologique Science Technik (I) Pvt. Ltd.</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white">
+    <!-- Top Header Section -->
+    <div class="bg-blue-600 flex items-center px-6 py-4">
+      <!-- Logo -->
+      <img src="./assets/estpllogo.png" alt="Logo" class="w-16 h-16 mr-4" />
+
+      <!-- Company Name -->
+      <h1 class="text-white text-2xl md:text-3xl font-bold">
+        Ecologique Science Technik (I) Pvt. Ltd.
+      </h1>
+    </div>
+
+    <!-- Navigation Menu -->
+    <style>
+      /* Add a small delay for dropdown to prevent immediate disappearance */
+      .dropdown-menu {
+        transition: opacity 0.2s, visibility 0.2s;
+      }
+      /* Create an invisible buffer zone between menu and dropdown */
+      .dropdown-parent::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+        let touchTimer;
+
+        dropdownToggles.forEach((toggle) => {
+          const dropdown = toggle.nextElementSibling;
+          const parent = toggle.closest(".dropdown-parent");
+
+          // Handle hover (desktop)
+          parent.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+              dropdown.classList.remove("hidden");
+            }
+          });
+
+          parent.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                dropdown.classList.add("hidden");
+              }, 200); // Small delay before hiding
+            }
+          });
+
+          // Handle click (mobile)
+          toggle.addEventListener("click", function (e) {
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const wasOpen = !dropdown.classList.contains("hidden");
+
+              // Close all dropdowns first
+              document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+                menu.classList.add("hidden");
+              });
+
+              // Toggle current dropdown if it wasn't open
+              if (!wasOpen) {
+                dropdown.classList.remove("hidden");
+              }
+            }
+          });
+        });
+
+        // Keep dropdown open when hovering over it (desktop)
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+            }
+          });
+
+          menu.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                menu.classList.add("hidden");
+              }, 200);
+            }
+          });
+        });
+
+        // Close dropdowns when clicking elsewhere
+        document.addEventListener("click", function (e) {
+          if (
+            window.innerWidth < 768 &&
+            !e.target.closest(".dropdown-parent")
+          ) {
+            document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+              menu.classList.add("hidden");
+            });
+          }
+        });
+      });
+    </script>
+
+    <nav class="bg-white shadow-md relative">
+      <div class="container mx-auto px-4">
+        <ul
+          class="flex flex-wrap justify-start space-x-0 md:space-x-6 py-3 text-gray-800 font-medium text-sm md:text-base"
+        >
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Home</a>
+          </li>
+
+          <!-- About with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              About
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Company Profile</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Certifications</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Testimonials</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Products & Services with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              Products & Services
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Wastewater Treatment</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Biogas Plants</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >STP Solutions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Consulting</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Equipment Supply</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Other regular menu items -->
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Gallery</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Tender</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Career</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Contact</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">KIRANA CLUB</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Policies</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header Start -->
+    <section class="py-24 px-4 bg-gray-500">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-8 text-start">
+          Products
+        </h1>
+      </div>
+    </section>
+    <!-- Header End -->
+
+    <!-- Plant Start -->
+    <!-- Main Section -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          <!-- Left Column - Text Content -->
+          <div class="lg:w-1/2">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">
+              Sewage Treatment Plants
+            </h1>
+
+            <div class="prose max-w-none text-gray-700 mb-8">
+              <p class="mb-4">
+                The MBBR system is a great improvement over conventional extend
+                Aeration or Activated Sludge plants , provides a robust and
+                compact unit in a fully design. sewage is a mixture of domestic
+                and industrial wastes. it is more than 99% water, but the
+                remainder contains some ions, suspended solids and harmful
+                bacteria that must be removed before the water is released into
+                the sea. sewage treatment refers to the process of removing
+                contaminants , micro- organisms and other type of pollutants
+                from wastewater. wastewater , or raw sewage , is water that
+                drains from toilets , sinks, showers, baths, washing machine and
+                liquid industrial waste. it is treated in a multi stage process
+                that make it safe to return to the environment.
+              </p>
+              <p class="mb-4">
+                The wastewater undergoes several stages in its municipal
+                treatment process for environmental protection. It includes
+                physical, biological and sometimes chemical processes to remove
+                pollutants. Its aim is to produce an environmentally safe sewage
+                water, called effluent, and a solid waste, called sludge or
+                biosolids, suitable for disposal or reuse. Reuse is often for
+                agricultural purposes, but more recently, sludge is being used
+                as a fuel source.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column - Image -->
+          <div class="lg:w-1/2 w-full mt-8 lg:mt-0">
+            <div
+              class="bg-gray-200 rounded-xl overflow-hidden shadow-lg aspect-w-16 aspect-h-9"
+            >
+              <!-- Replace with your actual image -->
+              <img
+                src="./assets/stp-front.png"
+                alt="Sewage Treatment Plant"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <p class="text-center text-gray-600 mt-4 italic">
+              Traditional Water for Reuse
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Plant End -->
+
+    <!-- STP Start -->
+    <!-- Applications Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-blue-800">
+            Varied Applications of STP
+          </h1>
+          <div class="w-24 h-1 bg-blue-600 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Application Card 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-blue-600 mb-4">
+              <i class="fas fa-home text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Domestic Wastewater
+            </h3>
+            <p class="text-gray-600">
+              Municipal wastewater treatment for residential areas
+            </p>
+          </div>
+
+          <!-- Application Card 2 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-green-600 mb-4">
+              <i class="fas fa-building text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Commercial Complexes
+            </h3>
+            <p class="text-gray-600">
+              Colonies, Airports, Hotels, and large buildings
+            </p>
+          </div>
+
+          <!-- Application Card 3 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-purple-600 mb-4">
+              <i class="fas fa-water text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Drainage Systems
+            </h3>
+            <p class="text-gray-600">Open drainage and nallah water cleaning</p>
+          </div>
+
+          <!-- Application Card 4 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-yellow-600 mb-4">
+              <i class="fas fa-tractor text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Agricultural Wastewater
+            </h3>
+            <p class="text-gray-600">
+              Treatment for farm and irrigation runoff
+            </p>
+          </div>
+
+          <!-- Application Card 5 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-red-600 mb-4">
+              <i class="fas fa-wine-bottle text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Dairy Waste
+            </h3>
+            <p class="text-gray-600">
+              Specialized treatment for dairy industry effluents
+            </p>
+          </div>
+
+          <!-- Application Card 6 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-teal-600 mb-4">
+              <i class="fas fa-fish text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Aquaculture
+            </h3>
+            <p class="text-gray-600">Fish pond discharges treatment</p>
+          </div>
+
+          <!-- Application Card 7 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-indigo-600 mb-4">
+              <i class="fas fa-industry text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Industrial Wastewater
+            </h3>
+            <p class="text-gray-600">
+              Pre-treated industrial wastewater solutions
+            </p>
+          </div>
+
+          <!-- Application Card 8 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow border border-gray-100"
+          >
+            <div class="text-pink-600 mb-4">
+              <i class="fas fa-ellipsis-h text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              Other Applications
+            </h3>
+            <p class="text-gray-600">Custom solutions for specialized needs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- STP End -->
+
+    <!-- Wetland Start -->
+    <!-- Constructed Wetland Section -->
+    <section class="py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+          <!-- Left Column - Text Content -->
+          <div class="lg:w-1/2">
+            <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">
+              Constructed Wetland
+            </h1>
+
+            <div class="prose max-w-none text-gray-700 mb-8">
+              <p class="mb-4">
+                Physical Technology is based on ecological wastewater treatment
+                designed to mimic the cleansing functions of wetlands with a
+                smaller footprint. Combination of physical separation and
+                naturally available biological components to treat sewage.
+              </p>
+              <p>
+                Designed to effectively work in tropical conditions and properly
+                camouflage in the aesthetics of landscape.
+              </p>
+            </div>
+
+            <div class="bg-green-50 border border-green-100 rounded-xl p-6">
+              <h2
+                class="text-xl font-bold text-green-700 mb-4 flex items-center"
+              >
+                <i class="fas fa-star mr-2"></i> Silent Features
+              </h2>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    >
+                  </span>
+                  <span
+                    >Phytorid is natural treatment technology using plants and
+                    Bio-media culture for sewage treatment</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Works on gravity flow</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Minimum electrical or mechanical machines used</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>No foul odour or mosquito nascence</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Low / 0.6M maintenance</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span
+                    >Decentralized manner for capacities from 5 KLD to 25
+                    MLD</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span
+                    >Treated water for various applications such as irrigation
+                    and back flushing</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Recovery of water 97-98%</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Dierates fluctuations in operating conditions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column - Image -->
+          <div class="lg:w-1/2">
+            <div
+              class="bg-gray-200 rounded-xl overflow-hidden shadow-lg aspect-w-16 aspect-h-9"
+            >
+              <!-- Replace with your actual image -->
+              <img
+                src="./assets/stp-front.png"
+                alt="Constructed Wetland System"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              class="mt-6 bg-white p-4 rounded-lg shadow-sm border border-gray-200"
+            >
+              <h3 class="font-bold text-green-700 mb-2">Key Benefits:</h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >Eco-friendly</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >Energy Efficient</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >Low Maintenance</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >High Water Recovery</span
+                >
+                <span
+                  class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm"
+                  >Odorless</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Wetland End -->
+
+    <!-- Package Start -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+          <!-- Left Column - Content (previously right) -->
+          <div class="lg:w-1/2 order-2 lg:order-2">
+            <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">
+              Package STP
+            </h1>
+
+            <div class="prose max-w-none text-gray-700 mb-8">
+              <p class="mb-4">
+                A compact, efficient sewage treatment solution designed for
+                reliability and ease of installation with minimal operational
+                requirements.
+              </p>
+            </div>
+
+            <div class="bg-green-50 border border-green-100 rounded-xl p-6">
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    >
+                  </span>
+                  <span
+                    >Treated sewage is the most reliable source of water</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Excellent performance with consistent results</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Compact solution for water treatment needs </span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Easy installation with unique modular design</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Minimizes labor and material requirements</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Permanent and durable long-term solution</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Low maintenance requirements</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Hygienic operation with no odor</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                    >></span
+                  >
+                  <span>Low capital cost with high ROI</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column - Image (previously left) -->
+          <div class="lg:w-1/2 w-full order-1 lg:order-1">
+            <div
+              class="bg-white p-6 rounded-xl shadow-lg border border-gray-200"
+            >
+              <div
+                class="aspect-w-16 aspect-h-9 bg-gradient-to-br from-secondary-100 to-primary-600 rounded-lg overflow-hidden"
+              >
+                <!-- Replace with your actual STP image -->
+                <img
+                  src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  alt="Package STP System"
+                  class="w-full h-full object-contain p-4"
+                />
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-3">
+                <div class="bg-secondary-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-check-circle text-primary-600 mr-2"></i>
+                  <span class="text-sm font-medium">Compact Design</span>
+                </div>
+                <div class="bg-secondary-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-check-circle text-primary-600 mr-2"></i>
+                  <span class="text-sm font-medium">Low Maintenance</span>
+                </div>
+                <div class="bg-secondary-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-check-circle text-primary-600 mr-2"></i>
+                  <span class="text-sm font-medium">Energy Efficient</span>
+                </div>
+                <div class="bg-secondary-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-check-circle text-primary-600 mr-2"></i>
+                  <span class="text-sm font-medium">Hygienic</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                600: "#2563eb",
+                700: "#1d4ed8",
+              },
+              secondary: {
+                100: "#e0f2fe",
+                800: "#075985",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Package End -->
+
+    <!-- MBBR Start -->
+    <!-- Conventional STP Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+          <!-- Left Column - Text Content -->
+          <div class="lg:w-1/2">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-6">
+              Conventional STP (MBBR/SBR)
+            </h1>
+
+            <div class="prose max-w-none text-gray-700 mb-8">
+              <p class="mb-4">
+                In the conventional STP we are providing both MBBR & SBR
+                processes. First, with conventional sewage treatment plants, the
+                solids are separated from the wastewater stream. Then dissolved
+                biological matter is progressively converted into a solid mass
+                by using indigenous, water-borne micro-organisms.
+              </p>
+              <p class="mb-4">
+                Finally, the biological solids are neutralized then disposed of
+                or re-used, and the treated water may be disinfected chemically
+                or physically (for example by lagoons and microfiltration). In
+                this conventional STP, most parts of the STP will be constructed
+                in civil which requires more manpower. Water gets treated in
+                three stages: primary, secondary & tertiary. The output water
+                norms from the package STP and conventional STP are the same.
+              </p>
+              <p>
+                The final effluent can be discharged into a stream, river, bay,
+                lagoon or wetland, or it can be used for the irrigation of a
+                golf course, greenway or park. If it is sufficiently clean, it
+                can also be used for groundwater recharge or agricultural
+                purposes.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column - Image -->
+          <div class="lg:w-1/2 w-full">
+            <div
+              class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 sticky top-6"
+            >
+              <div
+                class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden mb-4"
+              >
+                <!-- Replace with your actual STP image -->
+                <img
+                  src="./assets/stp-front.png"
+                  alt="Conventional STP System"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- MBBR End -->
+
+    <!-- Biogas Start -->
+    <!-- Biogas Technology Section -->
+    <section class="py-4 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+          <!-- Left Column - Text Content -->
+          <div class="lg:w-1/2">
+            <div class="mb-8">
+              <!-- <span
+                class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium mb-4"
+                >Sustainable Technology</span
+              > -->
+              <h1 class="text-3xl md:text-4xl font-bold text-green-800 mb-4">
+                Biogas
+              </h1>
+              <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                Nisarguna Technology
+              </h2>
+
+              <div class="prose max-w-none text-gray-700">
+                <p class="mb-4">
+                  NISARGUNA is the technology developed by Bhabha Atomic
+                  Research Centre. This technology is mainly designed to handle
+                  & process the biodegradable waste generated from kitchen,
+                  industries, agro-waste, & biomass in a decentralized manner.
+                </p>
+                <p class="mb-6">
+                  This plant can be installed for handling 1 to 25 MT of
+                  segregated waste per day. ESTPL is technology licensee of
+                  NISARGUNA Biogas plant, a technology developed by BARC.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-green-50 border border-green-100 rounded-xl p-6">
+              <h3
+                class="text-xl font-bold text-green-700 mb-4 flex items-center"
+              >
+                <i class="fas fa-leaf text-green-600 mr-2"></i> Key Advantages
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span
+                    >Environment friendly recycling of organic waste, which is
+                    the need of the hour</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span
+                    >Generation of biogas that can be used as fuel in the
+                    kitchen or for power generation</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span
+                    >Generation of high quality, weed-free manure, which is an
+                    excellent soil conditioner</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span
+                    >Can be installed for handling capacities from 1 to 25 MT
+                    biodegradable waste per day</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- <div class="mt-8 flex flex-wrap gap-4">
+              <button
+                class="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition-colors duration-300"
+              >
+                <i class="fas fa-download mr-2"></i> Download Brochure
+              </button>
+              <button
+                class="border border-green-600 text-green-600 hover:bg-green-50 font-medium py-3 px-6 rounded-lg transition-colors duration-300"
+              >
+                <i class="fas fa-phone-alt mr-2"></i> Contact Us
+              </button>
+            </div> -->
+          </div>
+
+          <!-- Right Column - Image -->
+          <div class="lg:w-1/2 w-full">
+            <div
+              class="bg-white p-6 rounded-xl shadow-lg border border-gray-200"
+            >
+              <div
+                class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden mb-6"
+              >
+                <!-- Replace with your actual biogas plant image -->
+                <img
+                  src="./assets/stp-front.png"
+                  alt="Nisarguna Biogas Plant"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                  <h4 class="font-bold text-green-700 mb-2 flex items-center">
+                    <i class="fas fa-recycle text-green-600 mr-2"></i> Waste
+                    Handling
+                  </h4>
+                  <p class="text-sm text-gray-600">
+                    1 to 25 MT per day capacity
+                  </p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                  <h4 class="font-bold text-green-700 mb-2 flex items-center">
+                    <i class="fas fa-bolt text-green-600 mr-2"></i> Energy
+                    Output
+                  </h4>
+                  <p class="text-sm text-gray-600">Biogas for cooking/power</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                  <h4 class="font-bold text-green-700 mb-2 flex items-center">
+                    <i class="fas fa-seedling text-green-600 mr-2"></i>
+                    Byproduct
+                  </h4>
+                  <p class="text-sm text-gray-600">
+                    High-quality organic manure
+                  </p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                  <h4 class="font-bold text-green-700 mb-2 flex items-center">
+                    <i class="fas fa-certificate text-green-600 mr-2"></i>
+                    Technology
+                  </h4>
+                  <p class="text-sm text-gray-600">Developed by BARC</p>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Biogas End -->
+
+    <!-- Treatment Start -->
+    <!-- Insitu Nallah Treatment Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+          <!-- Left Column - Text Content -->
+          <div class="lg:w-1/2">
+            <div class="mb-8">
+              <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+                Insitu Nallah Treatment
+              </h1>
+              <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+                Ecological Treatment System
+              </h2>
+
+              <div class="prose max-w-none text-gray-700 mb-8">
+                <p class="mb-4">
+                  On-site Engineered Wetland based Natural Treatment System
+                  (NTS) for in-situ nallah water (drain water) treatment. The
+                  NTS is a modular system that can be constructed beside the
+                  drain occupying minimum space and providing low cost efficient
+                  treatment.
+                </p>
+                <p class="mb-4">
+                  The NTS is engineered ecosystem with plants and microbial
+                  culture as active biological component and stone aggregate
+                  filter media that acts as a passive physical support for the
+                  ecosystem. The active biological and passive physical
+                  components degrade pollutants and uptake nutrients in
+                  wastewater.
+                </p>
+                <p>
+                  Each system can be tailored to specific case designed to
+                  withstand extreme fluctuation, and to last. The main objective
+                  of NTS is to provide a simple, feasible, practically sound,
+                  eco-friendly, maintenance free and cost-effective solution,
+                  which can handle the magnitude of sewage flowing through
+                  drains and treatment leading to pollution control.
+                </p>
+              </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-8">
+              <h3
+                class="text-xl font-bold text-blue-700 mb-4 flex items-center"
+              >
+                <i class="fas fa-star text-blue-600 mr-2"></i> Key Features
+              </h3>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </span>
+                  <span
+                    >Treatment efficiencies for the removal of BOD, COD and
+                    fecal coliforms are in the secondary treatment range</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </span>
+                  <span>NTS mostly works on gravitational flow</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </span>
+                  <span
+                    >It is modular and can be tailored to suit the site
+                    conditions</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </span>
+                  <span
+                    >The life cycle cost is low and can be maintained with
+                    minimum attention</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </span>
+                  <span
+                    >The treated water from each unit will be discharged in the
+                    existing drain for further conveyance</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0"
+                  >
+                    <i class="fas fa-arrow-right text-xs"></i>
+                  </span>
+                  <span
+                    >Settling basins along with screens for floating material to
+                    be provides before the NTS system both for mine water and
+                    sewage</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Column - Image -->
+          <div class="lg:w-1/2 w-full">
+            <div
+              class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 sticky top-6"
+            >
+              <div
+                class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden mb-6"
+              >
+                <!-- Replace with your actual NTS image -->
+                <img
+                  src="./assets/Untitled2.png"
+                  alt="Natural Treatment System"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <h4 class="font-bold text-blue-700 mb-2 flex items-center">
+                    <i class="fas fa-leaf text-blue-600 mr-2"></i> Eco-Friendly
+                  </h4>
+                  <p class="text-sm text-gray-600">
+                    Uses natural biological processes
+                  </p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <h4 class="font-bold text-blue-700 mb-2 flex items-center">
+                    <i class="fas fa-expand-arrows-alt text-blue-600 mr-2"></i>
+                    Modular
+                  </h4>
+                  <p class="text-sm text-gray-600">
+                    Customizable to site conditions
+                  </p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <h4 class="font-bold text-blue-700 mb-2 flex items-center">
+                    <i class="fas fa-tint text-blue-600 mr-2"></i> Efficient
+                  </h4>
+                  <p class="text-sm text-gray-600">
+                    Secondary treatment range performance
+                  </p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                  <h4 class="font-bold text-blue-700 mb-2 flex items-center">
+                    <i class="fas fa-dollar-sign text-blue-600 mr-2"></i>
+                    Cost-Effective
+                  </h4>
+                  <p class="text-sm text-gray-600">Low lifecycle costs</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Treatment End -->
+
+    <!-- Composter Start -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              earthy: {
+                100: "#f5f0e6",
+                500: "#8b7355",
+                600: "#6b5c45",
+                700: "#4a4438",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Composter Section -->
+    <section class="py-4 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+          <!-- Left Column - Image -->
+          <div class="lg:w-1/2 w-full">
+            <div
+              class="bg-white p-6 rounded-2xl shadow-xl border border-blue-200"
+            >
+              <div
+                class="aspect-w-16 aspect-h-9 bg-blue-100 rounded-xl overflow-hidden mb-6 relative"
+              >
+                <!-- Replace with your actual composter image -->
+                <img
+                  src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                  alt="Rapid Aerobic Composter"
+                  class="w-full h-full object-cover"
+                />
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4"
+                >
+                  <span class="text-white font-medium"
+                    >Organic Waste to Rich Compost in 15 Days</span
+                  >
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-blue-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-clock text-blue-600 mr-2"></i>
+                  <span class="text-sm font-medium">15-18 Day Cycle</span>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-bolt text-blue-600 mr-2"></i>
+                  <span class="text-sm font-medium">Low Energy Use</span>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-leaf text-blue-600 mr-2"></i>
+                  <span class="text-sm font-medium">Odorless</span>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg flex items-center">
+                  <i class="fas fa-arrows-alt text-blue-600 mr-2"></i>
+                  <span class="text-sm font-medium">Scalable</span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="mt-5 mb-4 bg-blue-50 border border-blue-200 rounded-2xl p-6"
+            >
+              <h2
+                class="text-xl font-bold text-blue-700 mb-4 flex items-center"
+              >
+                <i class="fas fa-star text-blue-600 mr-2"></i> Unique Features
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-black"
+                    >Dewatering Technology reduces water content in <24H
+                  </span>
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-black">Stable Compost in just 15 days</span>
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-black"
+                    >Meets all FCO Parameters for manure</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-black"
+                    >Low energy (40-50 units/tenement/day)</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-black"
+                    >Aesthetically designed to fit surroundings</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-black"
+                    >Works in all temperature conditions</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Content -->
+          <div class="lg:w-1/2">
+            <div class="mb-8">
+              <h1 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+                Composter
+              </h1>
+
+              <div class="prose max-w-none text-black mb-6">
+                <p class="mb-4">
+                  Rapid Aerobic Composter is scalable from household to
+                  community to small town. Aeration systems provide no foul
+                  smell operation. No vector nuisance while allowing free
+                  aeration. Accepts almost all biodegradable waste dry or wet.
+                </p>
+                <p>
+                  Specialized microbial culture makes operation rapid thereby
+                  reducing footprint. A very dry, light, and odourless compost
+                  excellent as soil conditioner is obtained. No specific skills
+                  are required for operation and maintenance.
+                </p>
+              </div>
+            </div>
+
+            <!-- Functioning Section -->
+            <div
+              class="bg-white p-6 rounded-2xl shadow-md border border-blue-200 mb-8"
+            >
+              <h2
+                class="text-xl font-bold text-blue-700 mb-4 flex items-center"
+              >
+                <i class="fas fa-cogs text-blue-600 mr-2"></i> Functioning of
+                Composter
+              </h2>
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 font-bold"
+                    ><i class="fas fa-check text-xs"></i
+                  ></span>
+                  <span
+                    >Household biodegradable waste is to be fed to the composter
+                    in batches at different times</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 font-bold"
+                    ><i class="fas fa-check text-xs"></i
+                  ></span>
+                  <span
+                    >Feeding is to be continued for 8-10 days with periodic
+                    addition of specialized microbial culture</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 font-bold"
+                    ><i class="fas fa-check text-xs"></i
+                  ></span>
+                  <span
+                    >After 10 days, transfer mass to maturation section (takes
+                    5-10 minutes)</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 font-bold"
+                    ><i class="fas fa-check text-xs"></i
+                  ></span>
+                  <span>Once empty, feeding can restart immediately</span>
+                </li>
+                <li class="flex items-start">
+                  <span
+                    class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 font-bold"
+                    ><i class="fas fa-check text-xs"></i
+                  ></span>
+                  <span
+                    >Compost matures in 15-18 days and is ready for use</span
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Unique Features Section -->
+            <!-- <div class="bg-blue-50 border border-blue-200 rounded-2xl p-6">
+              <h2
+                class="text-xl font-bold text-blue-700 mb-4 flex items-center"
+              >
+                <i class="fas fa-star text-blue-600 mr-2"></i> Unique Features
+              </h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-blue-800"
+                    >Dewatering Technology reduces water content in < 24H
+                  </span>
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-blue-800"
+                    >Stable Compost in just 15 days</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-blue-800"
+                    >Meets all FCO Parameters for manure</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-blue-800"
+                    >Low energy (40-50 units/tenement/day)</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-blue-800"
+                    >Aesthetically designed to fit surroundings</span
+                  >
+                </div>
+                <div class="flex items-start">
+                  <span
+                    class="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 mt-1"
+                  >
+                    <i class="fas fa-check text-xs"></i>
+                  </span>
+                  <span class="text-blue-800"
+                    >Works in all temperature conditions</span
+                  >
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Composter End -->
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center text-blue-400">
+          CONTACT US
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Registered Address
+            </h3>
+            <address class="not-italic">
+              <p>93 Agrey Lancia, Sunyuania Negra,</p>
+              <p>Khania Road, Nagpur,</p>
+              <p>Maharashtra - 440025</p>
+            </address>
+          </div>
+
+          <!-- Office Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Address
+            </h3>
+            <address class="not-italic">
+              <p>Dorong Tuzi, Park 001, Gri-Abertemer,</p>
+              <p>Ambasari Hill, Tech Nagpur,</p>
+              <p>Maharashtra - 440033</p>
+            </address>
+          </div>
+
+          <!-- Contact Info Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Contact Info
+            </h3>
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>+91-9975050500</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9146211713</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9975050506</span>
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>director@statj.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>ecologo@sunys@gmail.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>info@sunyskola.com</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Hours & Visits Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Hours
+            </h3>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-clock text-blue-300"></i>
+              <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+            </p>
+
+            <div class="pt-4">
+              <h3
+                class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+              >
+                Page Visits
+              </h3>
+              <div class="flex items-center gap-2 mt-2">
+                <i class="fas fa-eye text-blue-300"></i>
+                <!-- Replace with your actual visitor counter image -->
+                <img
+                  src="your-visitor-counter-image.png"
+                  alt="Visitor Counter"
+                  class="h-8"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Top & Copyright -->
+        <div
+          class="border-t border-gray-700 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <button
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="flex items-center gap-2 text-blue-300 hover:text-blue-400 mb-4 md:mb-0"
+          >
+            <i class="fas fa-arrow-up"></i>
+            <span>BACK TO TOP</span>
+          </button>
+
+          <p class="text-gray-400 text-sm">
+            &copy; 2023 ESTPL. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple back to top functionality
+      document
+        .querySelector("button[onclick]")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+  </body>
+</html>

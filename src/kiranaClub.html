@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecologique Science Technik (I) Pvt. Ltd.</title>
+    <link href="./output.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white">
+    <!-- Top Header Section -->
+    <div class="bg-blue-600 flex items-center px-6 py-4">
+      <!-- Logo -->
+      <img src="./assets/estpllogo.png" alt="Logo" class="w-16 h-16 mr-4" />
+
+      <!-- Company Name -->
+      <h1 class="text-white text-2xl md:text-3xl font-bold">
+        Ecologique Science Technik (I) Pvt. Ltd.
+      </h1>
+    </div>
+
+    <!-- Navigation Menu -->
+
+    <style>
+      /* Add a small delay for dropdown to prevent immediate disappearance */
+      .dropdown-menu {
+        transition: opacity 0.2s, visibility 0.2s;
+      }
+      /* Create an invisible buffer zone between menu and dropdown */
+      .dropdown-parent::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+        let touchTimer;
+
+        dropdownToggles.forEach((toggle) => {
+          const dropdown = toggle.nextElementSibling;
+          const parent = toggle.closest(".dropdown-parent");
+
+          // Handle hover (desktop)
+          parent.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+              dropdown.classList.remove("hidden");
+            }
+          });
+
+          parent.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                dropdown.classList.add("hidden");
+              }, 200); // Small delay before hiding
+            }
+          });
+
+          // Handle click (mobile)
+          toggle.addEventListener("click", function (e) {
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const wasOpen = !dropdown.classList.contains("hidden");
+
+              // Close all dropdowns first
+              document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+                menu.classList.add("hidden");
+              });
+
+              // Toggle current dropdown if it wasn't open
+              if (!wasOpen) {
+                dropdown.classList.remove("hidden");
+              }
+            }
+          });
+        });
+
+        // Keep dropdown open when hovering over it (desktop)
+        document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+          menu.addEventListener("mouseenter", function () {
+            if (window.innerWidth >= 768) {
+              clearTimeout(touchTimer);
+            }
+          });
+
+          menu.addEventListener("mouseleave", function () {
+            if (window.innerWidth >= 768) {
+              touchTimer = setTimeout(() => {
+                menu.classList.add("hidden");
+              }, 200);
+            }
+          });
+        });
+
+        // Close dropdowns when clicking elsewhere
+        document.addEventListener("click", function (e) {
+          if (
+            window.innerWidth < 768 &&
+            !e.target.closest(".dropdown-parent")
+          ) {
+            document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+              menu.classList.add("hidden");
+            });
+          }
+        });
+      });
+    </script>
+
+    <nav class="bg-white shadow-md relative">
+      <div class="container mx-auto px-4">
+        <ul
+          class="flex flex-wrap justify-start space-x-0 md:space-x-6 py-3 text-gray-800 font-medium text-sm md:text-base"
+        >
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Home</a>
+          </li>
+
+          <!-- About with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              About
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Company Profile</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Our Team</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Certifications</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Partners</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Testimonials</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Products & Services with Dropdown -->
+          <li
+            class="dropdown-parent relative group w-full md:w-auto text-center px-2 py-1 md:py-0"
+          >
+            <a
+              href="#"
+              class="dropdown-toggle hover:text-blue-600 flex items-center justify-center md:justify-start"
+            >
+              Products & Services
+              <i
+                class="fas fa-chevron-down ml-1 text-xs hidden md:inline-block group-hover:rotate-180 transition-transform"
+              ></i>
+            </a>
+            <ul
+              class="dropdown-menu hidden md:absolute md:left-0 mt-0 md:mt-2 w-full md:w-48 bg-gray-200 rounded-md shadow-lg z-10"
+            >
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Wastewater Treatment</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Biogas Plants</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >STP Solutions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Consulting</a
+                >
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-blue-500"
+                  >Equipment Supply</a
+                >
+              </li>
+            </ul>
+          </li>
+
+          <!-- Other regular menu items -->
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Gallery</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Tender</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Career</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Contact</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">KIRANA CLUB</a>
+          </li>
+          <li class="w-full md:w-auto text-center px-2 py-1 md:py-0">
+            <a href="#" class="hover:text-blue-600 block">Policies</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- header Start -->
+    <section class="py-24 px-4 bg-gray-500">
+      <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-8 text-start">
+          Kirana Club
+        </h1>
+      </div>
+    </section>
+    <!-- header End -->
+
+    <!-- Policies Start -->
+    <!-- Hero Section -->
+    <section
+      class="bg-gradient-to-r from-primary-600 to-primary-700 text-black py-16 px-4"
+    >
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-2 md:text-2 mb-6">
+          World is experiencing extraordinary situation of Pandemic and so is
+          the India. We have never seen before situations like lock-down. One
+          important aspect of the life support got revealed during this period
+          is Local Shops are the only suppliers. We at KiranaClub.com determined
+          to provide platform for local shops and discounts/benefits to buyers
+          as win-win situation. We are essentially a different platform, among
+          the several other mushroomed, with unique features.
+        </p>
+        <p class="text-2 md:text-2 mb-8 max-w-3xl mx-auto">
+          The most important salient features are we honor local shops small or
+          big, with all items or limited items, having computerized systems or
+          manual traditional systems. On the other hand caring for buyers with
+          ease of operations, smooth payment, prompt and scheduled deliveries,
+          non-touch delivery with social distancing, great offers, shop-based
+          return policies. With a dedicated team we strive for providing best
+          service in this supply chain not only in Lock-down period but forever.
+          We vison to take Local as real Global.
+        </p>
+        <a
+          href="#"
+          class="inline-block bg-secondary-600 hover:bg-secondary-700 text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+        >
+          Join KiranaClub
+        </a>
+      </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section class="py-12 bg-gray-100">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">
+          Our Policies
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div class="text-primary-600 mb-3">
+              <i class="fas fa-lock text-3xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Privacy Policy</h3>
+            <p class="text-gray-600">
+              How we protect your personal information
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium text-blue-600"
+            >
+              Read More <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div class="text-primary-600 mb-3">
+              <i class="fas fa-file-contract text-3xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Terms & Conditions</h3>
+            <p class="text-gray-600">
+              The legal agreement between you and KiranaClub
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium text-blue-600"
+            >
+              Read More <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+          <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div class="text-primary-600 mb-3">
+              <i class="fas fa-undo text-3xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-2">Refund & Cancellation</h3>
+            <p class="text-gray-600">
+              Our policies for returns and order cancellations
+            </p>
+            <a
+              href="#"
+              class="inline-block mt-4 text-primary-600 hover:text-primary-700 font-medium text-blue-600"
+            >
+              Read More <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                100: "#e3f2fd",
+                600: "#1e88e5",
+                700: "#1976d2",
+              },
+              secondary: {
+                100: "#fff8e1",
+                600: "#ffb300",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Policies End -->
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white pt-12 pb-8 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-8 text-center text-blue-400">
+          CONTACT US
+        </h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <!-- Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Registered Address
+            </h3>
+            <address class="not-italic">
+              <p>93 Agrey Lancia, Sunyuania Negra,</p>
+              <p>Khania Road, Nagpur,</p>
+              <p>Maharashtra - 440025</p>
+            </address>
+          </div>
+
+          <!-- Office Address Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Address
+            </h3>
+            <address class="not-italic">
+              <p>Dorong Tuzi, Park 001, Gri-Abertemer,</p>
+              <p>Ambasari Hill, Tech Nagpur,</p>
+              <p>Maharashtra - 440033</p>
+            </address>
+          </div>
+
+          <!-- Contact Info Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Contact Info
+            </h3>
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>+91-9975050500</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9146211713</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-phone text-blue-300"></i>
+                <span>9975050506</span>
+              </p>
+            </div>
+
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>director@statj.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>ecologo@sunys@gmail.com</span>
+              </p>
+              <p class="flex items-center gap-2">
+                <i class="fas fa-envelope text-blue-300"></i>
+                <span>info@sunyskola.com</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Hours & Visits Column -->
+          <div class="space-y-4">
+            <h3
+              class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+            >
+              Office Hours
+            </h3>
+            <p class="flex items-center gap-2">
+              <i class="fas fa-clock text-blue-300"></i>
+              <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+            </p>
+
+            <div class="pt-4">
+              <h3
+                class="text-xl font-semibold text-blue-300 border-b border-blue-500 pb-2"
+              >
+                Page Visits
+              </h3>
+              <div class="flex items-center gap-2 mt-2">
+                <i class="fas fa-eye text-blue-300"></i>
+                <!-- Replace with your actual visitor counter image -->
+                <img
+                  src="your-visitor-counter-image.png"
+                  alt="Visitor Counter"
+                  class="h-8"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Top & Copyright -->
+        <div
+          class="border-t border-gray-700 pt-6 mt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <button
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="flex items-center gap-2 text-blue-300 hover:text-blue-400 mb-4 md:mb-0"
+          >
+            <i class="fas fa-arrow-up"></i>
+            <span>BACK TO TOP</span>
+          </button>
+
+          <p class="text-gray-400 text-sm">
+            &copy; 2023 ESTPL. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple back to top functionality
+      document
+        .querySelector("button[onclick]")
+        .addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    </script>
+  </body>
+</html>
