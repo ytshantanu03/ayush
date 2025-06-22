@@ -261,22 +261,34 @@
 
       <!-- Dark Overlay for Better Text Contrast -->
       <div class="absolute inset-0 bg-black/50"></div>
-      <!-- Adjust opacity (e.g., /30, /50) -->
 
       <!-- Overlay Content (Text & Button) -->
       <div
         class="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center text-white px-4"
       >
         <h2 class="text-4xl md:text-5xl font-bold text-blue-300 drop-shadow-lg">
-          <!-- Changed to lighter blue for contrast -->
           Ecologique Science Technik (I) Pvt. Ltd.
         </h2>
         <p class="mt-2 text-xl font-semibold">Committed to the Planet.</p>
-        <button
-          class="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow-md transition-colors"
-        >
-          Employee Login
-        </button>
+
+        <!-- Button Group - Horizontal Layout -->
+        <div class="flex flex-wrap justify-center gap-4 mt-6">
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow-md transition-colors"
+          >
+            Register
+          </button>
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow-md transition-colors"
+          >
+            Login
+          </button>
+          <button
+            class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded shadow-md transition-colors"
+          >
+            Verify Captcha
+          </button>
+        </div>
       </div>
     </section>
 
